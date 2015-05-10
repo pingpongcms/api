@@ -6,41 +6,41 @@ use Cms\Api\Repositories\Users\UserRepository;
 use Illuminate\Http\Request;
 use Pingpong\Modules\Routing\Controller;
 
-class UsersController extends Controller {
-	
-	protected $repository;
+class UsersController extends Controller
+{
+    
+    protected $repository;
 
-	public function __construct(UserRepository $repository)
-	{
-		$this->repository = $repository;
-	}
+    public function __construct(UserRepository $repository)
+    {
+        $this->repository = $repository;
+    }
 
-	public function index()
-	{
-		return $this->repository->all();
-	}
+    public function index()
+    {
+        return $this->repository->all();
+    }
 
-	public function store(CreateUserRequest $request)
-	{
-		return $this->repository->create($request->all());	
-	}
+    public function store(CreateUserRequest $request)
+    {
+        return $this->repository->create($request->all());
+    }
 
-	public function update(UpdateUserRequest $request, $id)
-	{
-		$user = $this->repository->find($id);
+    public function update(UpdateUserRequest $request, $id)
+    {
+        $user = $this->repository->find($id);
 
-		$user->update($request->all());
+        $user->update($request->all());
 
-		return $user;
-	}
+        return $user;
+    }
 
-	public function destroy($id)
-	{
-		$user = $this->repository->find($id);
+    public function destroy($id)
+    {
+        $user = $this->repository->find($id);
 
-		$user->delete();
+        $user->delete();
 
-		return $user;
-	}
-	
+        return $user;
+    }
 }

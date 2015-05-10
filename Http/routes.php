@@ -1,6 +1,5 @@
 <?php
 
-Route::group(['prefix' => 'api', 'namespace' => 'Cms\Api\Http\Controllers'], function()
-{
-	Route::resource('users', 'UsersController');
+Route::group(['prefix' => 'api', 'namespace' => 'Cms\Api\Http\Controllers'], function () {
+    Route::resource('users', 'UsersController');
 });
